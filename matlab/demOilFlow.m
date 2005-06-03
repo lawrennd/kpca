@@ -20,7 +20,7 @@ A=kernCompute(kern, newX);
 numComp=kpcaNumComp(A, options,Dim);
 [sigma, oldV, lambda]=ppca(A,numComp);
 W=oldV*sqrt(diag(lambda));
-Y=KPCA(kern,X,numComp);
+Y=kpca(kern,X,numComp);
 
 initialSquaredError=sum(min(sum((oldV-Y).^2,1),sum((oldV+Y).^2,1)))/npts;
 
