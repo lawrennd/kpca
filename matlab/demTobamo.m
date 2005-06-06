@@ -2,7 +2,7 @@
 
 % KPCA
 
-p = input('Enter percentage of missing data\n');
+p = input('Enter probability of missing data\n');
 X=load('data/virus3.txt');% Loads Tobamovirus dataset.
 
 kern=kernel(X,'mlp'); % Produces structure vector of kernel specifics.

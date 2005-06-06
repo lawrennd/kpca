@@ -2,7 +2,7 @@
 
 % KPCA
 
-p = input('Enter percentage of missing data\n');
+p = input('Enter probability of missing data\n');
 X=load('data/DataTrn.txt');
 X=X(1:100,:);
 Labels=load('data/DataTrnLbls.txt');
