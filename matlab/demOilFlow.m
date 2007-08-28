@@ -7,7 +7,7 @@ X=load('data/DataTrn.txt');
 X=X(1:100,:);
 Labels=load('data/DataTrnLbls.txt');
 Labels=Labels(1:100,:); % loads oil flow dataset and subsamples to 100 datapoints.
-kern=kernel(X,'rbf');
+kern=kernCreate(X,'rbf');
 kern.inverseWidth = 0.075;
 npts=size(X,1);
 Dim=size(X,2);
@@ -20,7 +20,7 @@ A=kernCompute(kern, newX);
 numComp=kpcaNumComp(A, options,Dim);
 [sigma, oldV, lambda]=ppca(A,numComp);
 W=oldV*sqrt(diag(lambda));
-Y=kpca(kern,X,numComp);
+Y=kernPca(kern,X,numComp);
 
 initialSquaredError=sum(min(sum((oldV-Y).^2,1),sum((oldV+Y).^2,1)))/npts;
 

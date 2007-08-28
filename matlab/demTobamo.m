@@ -5,7 +5,7 @@
 p = input('Enter probability of missing data\n');
 X=load('data/virus3.txt');% Loads Tobamovirus dataset.
 
-kern=kernel(X,'mlp'); % Produces structure vector of kernel specifics.
+kern=kernCreate(X,'mlp'); % Produces structure vector of kernel specifics.
 
 npts=size(X,1);
 Dim=size(X,2);
@@ -15,7 +15,7 @@ seed=24;
 initialReconError=sum(sum((X-newX).^2))/npts;
 A=kernCompute(kern, newX); % Computes kernel matrix.
 numComp=kpcaNumComp(A, options,Dim);
-Y=kpca(kern,X,numComp);
+Y=kernPca(kern,X,numComp);
 [sigma, oldV, lambda]=ppca(A,numComp);
 W=oldV*sqrt(diag(lambda));
 initialSquaredError=sum(min(sum((oldV-Y).^2,1),sum((oldV+Y).^2,1)))/npts;
