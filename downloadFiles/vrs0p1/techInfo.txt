@@ -1,0 +1,19 @@
+
+
+
+ W=kpca(kern,X, dims)
+
+ f = kpcaLikeMissing(X,W,sigma,kern, I,npts,Dim);
+
+ f = kpcaLikeMissingGrad(X,W,sigma,kern, I,npts,Dim);
+
+ [newX, I] = kpcaMisser(X, p,seedling);
+
+ [updatedX, var, PcEig, PcCoeff] = kpcaMissingData(X,options,W,sigma,kern,I,numComp)
+
+ f = kpcaNumComp(A,options,dims);
+
+ options=kpcaOptions;
+
+ kpcaPlotnum(X, Y, fontSize, fontName);
+
